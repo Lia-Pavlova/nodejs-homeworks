@@ -2,7 +2,7 @@
 
 Создай форк [репозитория](https://github.com/goitacademy/nodejs-homework-template) в свой github аккаунт.
 
-Посмотри поясняющее видео как это сделать и сдавать ДЗ правильно: (https://www.youtube.com/watch?v=wabSW_sz_cM 'Пояснение')
+Посмотри [поясняющее видео](https://www.youtube.com/watch?v=wabSW_sz_cM ) как это сделать и сдавать ДЗ правильно. 
 
 Написать REST API для работы с коллекцией контактов. Для работы с REST API используй [Postman](https://www.getpostman.com/).
 
