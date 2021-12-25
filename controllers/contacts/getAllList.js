@@ -1,8 +1,12 @@
-const listContacts = require('../../models/contacts/listContacts')
+const listContacts = require('../../repository/listContacts')
+const { HttpCode } = require('../../libs/constants')
 
 const getAllList = async (req, res, next) => {
-  const contacts = await listContacts()
-  res.status(200).json({ contacts })
+  console.log(req.query)
+  const contacts = await listContacts(req.query)
+  res
+    .status(HttpCode.OK)
+    .json({ status: 'success', code: HttpCode.OK, data: { ...contacts } })
 }
 
 module.exports = getAllList
