@@ -17,16 +17,22 @@ const {
   validateQuery,
 } = require('../../middlewares/validation/contactValidation')
 
-router.get('/', validateQuery, getAllList)
+const guard = require('../../middlewares/guard')
 
-router.get('/:id', validateId, getById)
+router.get('/', [guard, validateQuery], getAllList)
 
-router.post('/', validateCreate, add)
+router.get('/:id', [guard, validateId], getById)
 
-router.delete('/:id', validateId, remove)
+router.post('/', [guard, validateCreate], add)
 
-router.put('/:id', validateId, validateUpdate, update)
+router.delete('/:id', [guard, validateId], remove)
 
-router.patch('/:id/favorite', validateId, validateUpdateFavorite, update)
+router.put('/:id', [guard, validateId, validateUpdate], update)
+
+router.patch(
+  '/:id/favorite',
+  [guard, validateId, validateUpdateFavorite],
+  update,
+)
 
 module.exports = router

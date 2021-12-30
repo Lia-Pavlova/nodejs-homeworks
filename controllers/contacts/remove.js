@@ -3,7 +3,8 @@ const { HttpCode } = require('../../libs/constants')
 
 const remove = async (req, res, next) => {
   const { id } = req.params
-  const contactToDelete = await removeContact(id)
+  const { id: userId } = req.user
+  const contactToDelete = await removeContact(userId, id)
   if (contactToDelete) {
     return res
       .status(HttpCode.OK)

@@ -14,4 +14,11 @@ const HttpCode = {
   INTERNAL_SERVER_ERROR: 500,
 }
 
-module.exports = { MIN_AGE, MAX_AGE, HttpCode }
+const Role = {
+  ADMIN: 'administrator',
+  USER: 'user',
+}
+
+const LIMIT_JSON = 5000
+
+module.exports = { MIN_AGE, MAX_AGE, HttpCode, Role, LIMIT_JSON }
