@@ -10,8 +10,8 @@ const subscriptionUpdate = async (req, res, _next) => {
     subscription !== 'pro' &&
     subscription !== 'business'
   ) {
-    const { email } = req.user
     await authService.setSubscription(req.user.id, subscription)
+    const { email } = req.user
     res.status(HttpCode.OK).json({
       status: 'success',
       code: HttpCode.OK,
@@ -19,7 +19,7 @@ const subscriptionUpdate = async (req, res, _next) => {
     })
   } else {
     return res.status(HttpCode.BAD_REQUEST).json({
-      status: 'success',
+      status: 'error',
       code: HttpCode.BAD_REQUEST,
       message: `Subscription ${subscription} is not allowed`,
     })

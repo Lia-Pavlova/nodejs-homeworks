@@ -2,7 +2,7 @@ const Contact = require('../model/contact')
 
 const listContacts = async (
   userId,
-  { favorite = null, sortBy, sortByDesc, filter, limit = 20, skip = 0 },
+  { favorite = null, sortBy, sortByDesc, filter, limit = 20, page = 1 },
 ) => {
   let sortCriteria = null
   let total = await Contact.find({ owner: userId }).countDocuments()
@@ -26,11 +26,20 @@ const listContacts = async (
       favorite: `${favorite}`,
     }).countDocuments()
   }
+  let size = 0
+  if (total - (page - 1) * limit > limit) {
+    size = limit
+  } else if (
+    total - (page - 1) * limit < limit &&
+    total - (page - 1) * limit >= 1
+  ) {
+    size = total - (page - 1) * limit
+  }
   result = await result
-    .skip(Number(skip))
+    .skip(Number((page - 1) * limit))
     .limit(Number(limit))
     .sort(sortCriteria)
-  return { total, contacts: result }
+  return { total, size, contacts: result }
 }
 
 module.exports = listContacts
