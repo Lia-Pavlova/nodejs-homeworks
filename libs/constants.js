@@ -22,4 +22,10 @@ const Role = {
 
 const LIMIT_JSON = 5000
 
-module.exports = { MIN_AGE, MAX_AGE, HttpCode, Role, LIMIT_JSON }
+const Subscription = {
+  STARTER: 'starter',
+  PRO: 'pro',
+  BUSINESS: 'business',
+}
+
+module.exports = { MIN_AGE, MAX_AGE, HttpCode, Role, LIMIT_JSON, Subscription }

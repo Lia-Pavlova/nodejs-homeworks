@@ -7,7 +7,7 @@ const getStatisticsContacts = async (id) => {
     { $match: { owner: Types.ObjectId(id) } },
     {
       $group: {
-        _id: 'qweqwe',
+        _id: 'stats',
         totalAge: { $sum: '$age' },
         minAge: { $min: '$age' },
         maxAge: { $max: '$age' },

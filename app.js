@@ -32,11 +32,11 @@ app.use((req, res) => {
     .json({ status: 'error', code: HttpCode.NOT_FOUND, message: 'Not found' })
 })
 
-app.use((err, req, res, next) => {
+app.use((error, req, res, next) => {
   res.status(HttpCode.INTERNAL_SERVER_ERROR).json({
     status: 'fail',
     code: HttpCode.INTERNAL_SERVER_ERROR,
-    message: err.message,
+    message: error.message,
   })
 })
 

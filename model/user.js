@@ -1,6 +1,6 @@
 const pkg = require('mongoose')
 const bcrypt = require('bcryptjs')
-const { Role } = require('../libs/constants')
+const { Role, Subscription } = require('../libs/constants')
 
 const { Schema, model } = pkg
 
@@ -31,6 +31,14 @@ const userSchema = new Schema(
       },
       default: Role.USER,
     },
+    subscription: {
+      type: String,
+      enum: {
+        values: Object.values(Subscription),
+        message: 'Subscription is not allowed',
+      },
+      default: Subscription.STARTER,
+    },
     token: {
       type: String,
       default: null,
@@ -49,8 +57,6 @@ const userSchema = new Schema(
     toObject: { virtuals: true },
   },
 )
-
-// TODO:
 
 userSchema.pre('save', async function (next) {
   if (this.isModified('password')) {
