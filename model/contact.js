@@ -1,7 +1,7 @@
 const pkg = require('mongoose')
 const { MIN_AGE, MAX_AGE } = require('../libs/constants')
 
-const { Schema, model } = pkg
+const { Schema, SchemaTypes, model } = pkg
 
 const contactSchema = new Schema(
   {
@@ -24,6 +24,11 @@ const contactSchema = new Schema(
     favorite: {
       type: Boolean,
       default: false,
+    },
+    owner: {
+      type: SchemaTypes.ObjectId,
+      ref: 'user',
+      required: true,
     },
   },
   {

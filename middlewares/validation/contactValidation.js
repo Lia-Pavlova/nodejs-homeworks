@@ -50,12 +50,12 @@ const validateCreate = async (req, res, next) => {
 const validateUpdate = async (req, res, next) => {
   try {
     await updateSchema.validateAsync(req.body)
-  } catch (error) {
-    const [{ type }] = error.details
+  } catch (err) {
+    const [{ type }] = err.details
     if (type === 'object.missing') {
       return res.status(400).json({ message: `missing fields` })
     }
-    return res.status(400).json({ message: error.message })
+    return res.status(400).json({ message: err.message })
   }
   next()
 }

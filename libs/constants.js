@@ -11,7 +11,21 @@ const HttpCode = {
   FORBIDDEN: 403,
   NOT_FOUND: 404,
   CONFLICT: 409,
+  TOO_MANY_REQUESTS: 429,
   INTERNAL_SERVER_ERROR: 500,
 }
 
-module.exports = { MIN_AGE, MAX_AGE, HttpCode }
+const Role = {
+  ADMIN: 'administrator',
+  USER: 'user',
+}
+
+const LIMIT_JSON = 5000
+
+const Subscription = {
+  STARTER: 'starter',
+  PRO: 'pro',
+  BUSINESS: 'business',
+}
+
+module.exports = { MIN_AGE, MAX_AGE, HttpCode, Role, LIMIT_JSON, Subscription }

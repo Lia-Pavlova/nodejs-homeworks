@@ -3,7 +3,8 @@ const { HttpCode } = require('../../libs/constants')
 
 const update = async (req, res, next) => {
   const { id } = req.params
-  const contactUpdated = await updateContact(id, req.body)
+  const { id: userId } = req.user
+  const contactUpdated = await updateContact(userId, id, req.body)
   if (contactUpdated) {
     return res
       .status(HttpCode.OK)
