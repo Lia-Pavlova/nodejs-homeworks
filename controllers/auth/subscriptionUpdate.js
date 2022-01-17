@@ -1,6 +1,5 @@
 const { HttpCode } = require('../../libs/constants')
-const AuthService = require('../../service/auth')
-const authService = new AuthService()
+const authService = require('../../service/auth')
 
 const subscriptionUpdate = async (req, res, _next) => {
   const { subscription } = req.body

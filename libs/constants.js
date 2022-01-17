@@ -28,4 +28,14 @@ const Subscription = {
   BUSINESS: 'business',
 }
 
-module.exports = { MIN_AGE, MAX_AGE, HttpCode, Role, LIMIT_JSON, Subscription }
+const CLOUD_FOLDER_AVATARS = 'Avatars'
+
+module.exports = {
+  MIN_AGE,
+  MAX_AGE,
+  HttpCode,
+  Role,
+  LIMIT_JSON,
+  Subscription,
+  CLOUD_FOLDER_AVATARS,
+}

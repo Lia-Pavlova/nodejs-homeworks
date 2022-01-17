@@ -1,6 +1,5 @@
 const { HttpCode } = require('../../libs/constants')
-const AuthService = require('../../service/auth')
-const authService = new AuthService()
+const authService = require('../../service/auth')
 
 const logout = async (req, res, next) => {
   await authService.setToken(req.user.id, null)

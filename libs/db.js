@@ -2,7 +2,13 @@ const pkg = require('mongoose')
 
 const { connect, connection } = pkg
 
-const uri = process.env.URI_DB
+let uri
+
+if (process.env.NODE_ENV === 'test') {
+  uri = process.env.URI_DB_TEST
+} else {
+  uri = process.env.URI_DB
+}
 
 const db = connect(uri, {
   useNewUrlParser: true,

@@ -35,6 +35,7 @@ const listContacts = async (
   ) {
     size = total - (page - 1) * limit
   }
+
   result = await result
     .skip(Number((page - 1) * limit))
     .limit(Number(limit))

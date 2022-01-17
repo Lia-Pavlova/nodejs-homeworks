@@ -1,6 +1,5 @@
 const { HttpCode } = require('../../libs/constants')
-const AuthService = require('../../service/auth')
-const authService = new AuthService()
+const authService = require('../../service/auth')
 
 const login = async (req, res, next) => {
   const { email, password } = req.body
