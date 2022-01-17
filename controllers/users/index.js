@@ -38,6 +38,4 @@ const uploadAvatar = async (req, res, next) => {
     .json({ status: 'success', code: HttpCode.OK, data: { avatarUrl } })
 }
 
-// module.exports = { aggregation, uploadAvatar }
-
 export { aggregation, uploadAvatar }
