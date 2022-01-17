@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
-const getStatisticsContacts = require('../../repository/getStatisticsContacts')
-const { HttpCode } = require('../../libs/constants')
-const {
+import getStatisticsContacts from '../../repository/getStatisticsContacts'
+import { HttpCode } from '../../libs/constants'
+import {
   UploadFileService,
   LocalFileStorage,
   CloudFileStorage,
-} = require('../../service/file-storage')
+} from '../../service/file-storage'
 
 // LocalStorage - static/local
 // CloudStorage - with using cloudinary
@@ -38,4 +38,6 @@ const uploadAvatar = async (req, res, next) => {
     .json({ status: 'success', code: HttpCode.OK, data: { avatarUrl } })
 }
 
-module.exports = { aggregation, uploadAvatar }
+// module.exports = { aggregation, uploadAvatar }
+
+export { aggregation, uploadAvatar }

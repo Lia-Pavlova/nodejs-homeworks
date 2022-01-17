@@ -1,4 +1,4 @@
-const Contact = require('../model/contact')
+import Contact from '../model/contact'
 
 const listContacts = async (
   userId,
@@ -43,4 +43,4 @@ const listContacts = async (
   return { total, size, contacts: result }
 }
 
-module.exports = listContacts
+export default listContacts

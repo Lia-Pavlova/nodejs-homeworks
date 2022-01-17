@@ -1,7 +1,7 @@
-const pkg = require('mongoose')
-const bcrypt = require('bcryptjs')
-const gravatar = require('gravatar')
-const { Role, Subscription } = require('../libs/constants')
+import pkg from 'mongoose'
+import bcrypt from 'bcryptjs'
+import gravatar from 'gravatar'
+import { Role, Subscription } from '../libs/constants'
 
 const { Schema, model } = pkg
 
@@ -83,4 +83,4 @@ userSchema.methods.isValidPassword = async function (password) {
 
 const User = model('user', userSchema)
 
-module.exports = User
+export default User

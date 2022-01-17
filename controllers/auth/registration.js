@@ -1,5 +1,5 @@
-const { HttpCode } = require('../../libs/constants')
-const authService = require('../../service/auth')
+import { HttpCode } from '../../libs/constants'
+import authService from '../../service/auth'
 
 const registration = async (req, res, next) => {
   try {
@@ -21,4 +21,4 @@ const registration = async (req, res, next) => {
   }
 }
 
-module.exports = registration
+export default registration

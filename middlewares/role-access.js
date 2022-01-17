@@ -1,5 +1,5 @@
-const { HttpCode } = require('../libs/constants')
-const { FORBIDDEN } = require('../libs/messages')
+import { HttpCode } from '../libs/constants'
+import { FORBIDDEN } from '../libs/messages'
 
 const guard = (role) => async (req, res, next) => {
   const roleCurrentUser = req.user.role
@@ -13,4 +13,4 @@ const guard = (role) => async (req, res, next) => {
   next()
 }
 
-module.exports = guard
+export default guard

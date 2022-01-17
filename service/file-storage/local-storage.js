@@ -1,6 +1,6 @@
-const path = require('path')
-const fs = require('fs/promises')
-const Users = require('../../repository/users')
+import path from 'path'
+import fs from 'fs/promises'
+import Users from '../../repository/users'
 
 class LocalStorage {
   constructor(file, user) {
@@ -24,4 +24,4 @@ class LocalStorage {
   }
 }
 
-module.exports = LocalStorage
+export default LocalStorage

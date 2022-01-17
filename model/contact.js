@@ -1,5 +1,5 @@
-const pkg = require('mongoose')
-const { MIN_AGE, MAX_AGE } = require('../libs/constants')
+import pkg from 'mongoose'
+import { MIN_AGE, MAX_AGE } from '../libs/constants'
 
 const { Schema, SchemaTypes, model } = pkg
 
@@ -54,4 +54,4 @@ contactSchema.virtual('status').get(function () {
 
 const Contact = model('contact', contactSchema)
 
-module.exports = Contact
+export default Contact

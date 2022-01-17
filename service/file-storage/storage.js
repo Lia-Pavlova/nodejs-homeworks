@@ -1,4 +1,4 @@
-const Jimp = require('jimp')
+import Jimp from 'jimp'
 
 class AvatarStorage {
   constructor(Storage, file, user) {
@@ -25,4 +25,4 @@ class AvatarStorage {
   }
 }
 
-module.exports = AvatarStorage
+export default AvatarStorage

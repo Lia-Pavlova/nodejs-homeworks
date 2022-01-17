@@ -1,5 +1,5 @@
-const getContactById = require('../../repository/getContactById')
-const { HttpCode } = require('../../libs/constants')
+import getContactById from '../../repository/getContactById'
+import { HttpCode } from '../../libs/constants'
 
 const getById = async (req, res, next) => {
   const { id } = req.params
@@ -16,4 +16,4 @@ const getById = async (req, res, next) => {
     .json({ status: 'error', code: HttpCode.NOT_FOUND, message: 'Not found' })
 }
 
-module.exports = getById
+export default getById

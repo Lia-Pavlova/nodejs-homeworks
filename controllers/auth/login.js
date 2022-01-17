@@ -1,5 +1,5 @@
-const { HttpCode } = require('../../libs/constants')
-const authService = require('../../service/auth')
+import { HttpCode } from '../../libs/constants'
+import authService from '../../service/auth'
 
 const login = async (req, res, next) => {
   const { email, password } = req.body
@@ -18,4 +18,4 @@ const login = async (req, res, next) => {
     .json({ status: 'success', code: HttpCode.OK, data: { token } })
 }
 
-module.exports = login
+export default login

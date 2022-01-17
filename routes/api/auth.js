@@ -1,14 +1,15 @@
-const express = require('express')
-const router = express.Router()
-const {
+import { Router } from 'express'
+import {
   registration,
   login,
   logout,
   getCurrent,
   subscriptionUpdate,
-} = require('../../controllers/auth')
-const guard = require('../../middlewares/guard')
-const limiter = require('../../middlewares/rate-limit')
+} from '../../controllers/auth'
+import guard from '../../middlewares/guard'
+import limiter from '../../middlewares/rate-limit'
+
+const router = new Router()
 
 router.post('/registration', limiter(15 * 60 * 1000, 2), registration)
 router.post('/login', login)
@@ -16,4 +17,4 @@ router.post('/logout', guard, logout)
 router.get('/getCurrent', guard, getCurrent)
 router.patch('/', guard, subscriptionUpdate)
 
-module.exports = router
+export default router

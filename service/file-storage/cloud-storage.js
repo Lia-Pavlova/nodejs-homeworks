@@ -1,8 +1,8 @@
-const { v2: cloudinary } = require('cloudinary')
-const { promisify } = require('util')
-const { unlink } = require('fs/promises')
-const Users = require('../../repository/users')
-const { CLOUD_FOLDER_AVATARS } = require('../../libs/constants')
+import { v2 as cloudinary } from 'cloudinary'
+import { promisify } from 'util'
+import { unlink } from 'fs/promises'
+import Users from '../../repository/users'
+import { CLOUD_FOLDER_AVATARS } from '../../libs/constants'
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -49,4 +49,4 @@ class CloudStorage {
   }
 }
 
-module.exports = CloudStorage
+export default CloudStorage

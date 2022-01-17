@@ -1,13 +1,7 @@
-const getAllList = require('./getAllList')
-const getById = require('./getById')
-const add = require('./add')
-const remove = require('./remove')
-const update = require('./update')
+import getAllList from './getAllList'
+import getById from './getById'
+import add from './add'
+import remove from './remove'
+import update from './update'
 
-module.exports = {
-  getAllList,
-  getById,
-  add,
-  remove,
-  update,
-}
+export { getAllList, getById, add, remove, update }

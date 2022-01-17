@@ -1,11 +1,11 @@
-const listContacts = require('./listContacts')
-const getContactById = require('./getContactById')
-const addContact = require('./addContact')
-const updateContact = require('./updateContact')
-const removeContact = require('./removeContact')
-const getStatisticsContacts = require('./getStatisticsContacts')
+import listContacts from './listContacts'
+import getContactById from './getContactById'
+import removeContact from './removeContact'
+import addContact from './addContact'
+import updateContact from './updateContact'
+import getStatisticsContacts from './getStatisticsContacts'
 
-module.exports = {
+export default {
   listContacts,
   getContactById,
   removeContact,

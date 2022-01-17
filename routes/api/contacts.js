@@ -1,23 +1,23 @@
-const express = require('express')
-const router = express.Router()
-
-const {
+import { Router } from 'express'
+import {
   getAllList,
   getById,
   remove,
   add,
   update,
-} = require('../../controllers/contacts/index')
+} from '../../controllers/contacts'
 
-const {
+import {
   validateCreate,
   validateUpdate,
   validateId,
   validateUpdateFavorite,
   validateQuery,
-} = require('../../middlewares/validation/contactValidation')
+} from '../../middlewares/validation/contactValidation'
 
-const guard = require('../../middlewares/guard')
+import guard from '../../middlewares/guard'
+
+const router = new Router()
 
 router.get('/', [guard, validateQuery], getAllList)
 
@@ -35,4 +35,4 @@ router.patch(
   update,
 )
 
-module.exports = router
+export default router

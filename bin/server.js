@@ -1,8 +1,6 @@
-const { mkdir } = require('fs/promises')
-
-const app = require('../app')
-
-const db = require('../libs/db')
+import { mkdir } from 'fs/promises'
+import app from '../app'
+import db from '../libs/db'
 
 const PORT = process.env.PORT || 3000
 

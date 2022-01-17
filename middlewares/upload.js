@@ -1,4 +1,4 @@
-const multer = require('multer')
+import multer from 'multer'
 const UPLOAD_DIR = process.env.UPLOAD_DIR
 
 const storage = multer.diskStorage({
@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
   },
 })
 
-const upload = multer({
+export const upload = multer({
   storage: storage,
   limits: { fileSize: 500000 },
   fileFilter: (req, file, cb) => {
@@ -21,5 +21,3 @@ const upload = multer({
     cb(new Error('Wrong format file for avatar!'))
   },
 })
-
-module.exports = upload

@@ -1,5 +1,5 @@
-const UploadFileService = require('./storage')
-const LocalFileStorage = require('./local-storage')
-const CloudFileStorage = require('./cloud-storage')
+import UploadFileService from './storage'
+import LocalFileStorage from './local-storage'
+import CloudFileStorage from './cloud-storage'
 
-module.exports = { UploadFileService, LocalFileStorage, CloudFileStorage }
+export { UploadFileService, LocalFileStorage, CloudFileStorage }

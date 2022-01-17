@@ -1,4 +1,4 @@
-const { HttpCode } = require('../../libs/constants')
+import { HttpCode } from '../../libs/constants'
 
 const getCurrent = (req, res, _next) => {
   const { email, subscription } = req.user
@@ -9,4 +9,4 @@ const getCurrent = (req, res, _next) => {
   })
 }
 
-module.exports = getCurrent
+export default getCurrent

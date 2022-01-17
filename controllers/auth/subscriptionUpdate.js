@@ -1,5 +1,5 @@
-const { HttpCode } = require('../../libs/constants')
-const authService = require('../../service/auth')
+import { HttpCode } from '../../libs/constants'
+import authService from '../../service/auth'
 
 const subscriptionUpdate = async (req, res, _next) => {
   const { subscription } = req.body
@@ -25,4 +25,4 @@ const subscriptionUpdate = async (req, res, _next) => {
   }
 }
 
-module.exports = subscriptionUpdate
+export default subscriptionUpdate

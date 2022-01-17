@@ -1,4 +1,4 @@
-const pkg = require('mongoose')
+import pkg from 'mongoose'
 
 const { connect, connection } = pkg
 
@@ -33,4 +33,4 @@ process.on('SIGINT', async () => {
   process.exit(1)
 })
 
-module.exports = db
+export default db

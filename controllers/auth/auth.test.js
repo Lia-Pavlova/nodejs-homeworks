@@ -1,7 +1,7 @@
-const { jest } = require('@jest/globals')
-const { registration } = require('./registration')
-const { HttpCode } = require('../../libs/constants')
-const authService = require('../../service/auth')
+import { jest } from '@jest/globals'
+import { registration } from './index'
+import { HttpCode } from '../../libs/constants'
+import authService from '../../service/auth'
 
 describe('Unit test registration', () => {
   let req, res, next

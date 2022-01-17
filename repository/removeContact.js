@@ -1,4 +1,4 @@
-const Contact = require('../model/contact')
+import Contact from '../model/contact'
 
 const removeContact = async (userId, contactId) => {
   const result = await Contact.findOneAndRemove({
@@ -8,4 +8,4 @@ const removeContact = async (userId, contactId) => {
   return result
 }
 
-module.exports = removeContact
+export default removeContact
