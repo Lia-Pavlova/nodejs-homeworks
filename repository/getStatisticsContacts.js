@@ -1,5 +1,6 @@
-const Contact = require('../model/contact')
-const pkg = require('mongoose')
+import Contact from '../model/contact'
+import pkg from 'mongoose'
+
 const { Types } = pkg
 
 const getStatisticsContacts = async (id) => {
@@ -18,4 +19,4 @@ const getStatisticsContacts = async (id) => {
   return data
 }
 
-module.exports = getStatisticsContacts
+export default getStatisticsContacts

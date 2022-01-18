@@ -1,5 +1,5 @@
-const updateContact = require('../../repository/updateContact')
-const { HttpCode } = require('../../libs/constants')
+import updateContact from '../../repository/updateContact'
+import { HttpCode } from '../../libs/constants'
 
 const update = async (req, res, next) => {
   const { id } = req.params
@@ -15,4 +15,4 @@ const update = async (req, res, next) => {
     .json({ status: 'error', code: HttpCode.NOT_FOUND, message: 'Not found' })
 }
 
-module.exports = update
+export default update

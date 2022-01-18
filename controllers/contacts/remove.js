@@ -1,5 +1,5 @@
-const removeContact = require('../../repository/removeContact')
-const { HttpCode } = require('../../libs/constants')
+import removeContact from '../../repository/removeContact'
+import { HttpCode } from '../../libs/constants'
 
 const remove = async (req, res, next) => {
   const { id } = req.params
@@ -15,4 +15,4 @@ const remove = async (req, res, next) => {
     .json({ status: 'error', code: HttpCode.NOT_FOUND, message: 'Not found' })
 }
 
-module.exports = remove
+export default remove

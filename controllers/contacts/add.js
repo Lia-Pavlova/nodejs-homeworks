@@ -1,5 +1,5 @@
-const addContact = require('../../repository/addContact')
-const { HttpCode } = require('../../libs/constants')
+import addContact from '../../repository/addContact'
+import { HttpCode } from '../../libs/constants'
 
 const add = async (req, res, next) => {
   const { id: userId } = req.user
@@ -11,4 +11,4 @@ const add = async (req, res, next) => {
   })
 }
 
-module.exports = add
+export default add

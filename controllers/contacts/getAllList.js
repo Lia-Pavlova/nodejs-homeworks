@@ -1,5 +1,5 @@
-const listContacts = require('../../repository/listContacts')
-const { HttpCode } = require('../../libs/constants')
+import listContacts from '../../repository/listContacts'
+import { HttpCode } from '../../libs/constants'
 
 const getAllList = async (req, res, next) => {
   const { id: userId } = req.user
@@ -9,4 +9,4 @@ const getAllList = async (req, res, next) => {
     .json({ status: 'success', code: HttpCode.OK, data: { ...contacts } })
 }
 
-module.exports = getAllList
+export default getAllList

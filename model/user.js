@@ -1,6 +1,7 @@
-const pkg = require('mongoose')
-const bcrypt = require('bcryptjs')
-const { Role, Subscription } = require('../libs/constants')
+import pkg from 'mongoose'
+import bcrypt from 'bcryptjs'
+import gravatar from 'gravatar'
+import { Role, Subscription } from '../libs/constants'
 
 const { Schema, model } = pkg
 
@@ -43,6 +44,16 @@ const userSchema = new Schema(
       type: String,
       default: null,
     },
+    avatar: {
+      type: String,
+      default: function () {
+        return gravatar.url(this.email, { s: '250' }, true)
+      },
+    },
+    idAvatarCloud: {
+      type: String,
+      default: null,
+    },
   },
   {
     versionKey: false,
@@ -72,4 +83,4 @@ userSchema.methods.isValidPassword = async function (password) {
 
 const User = model('user', userSchema)
 
-module.exports = User
+export default User

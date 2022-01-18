@@ -1,5 +1,5 @@
-const jwt = require('jsonwebtoken')
-const Users = require('../repository/users')
+import jwt from 'jsonwebtoken'
+import Users from '../repository/users'
 const SECRET_KEY = process.env.JWT_SECRET_KEY
 
 class AuthService {
@@ -9,13 +9,16 @@ class AuthService {
   }
 
   async create(body) {
-    const { id, name, email, role, subscription } = await Users.create(body)
+    const { id, name, email, role, subscription, avatar } = await Users.create(
+      body,
+    )
     return {
       id,
       name,
       email,
       role,
       subscription,
+      avatar,
     }
   }
 
@@ -44,4 +47,4 @@ class AuthService {
   }
 }
 
-module.exports = AuthService
+export default new AuthService()

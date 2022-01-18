@@ -1,4 +1,4 @@
-const User = require('../model/user')
+import User from '../model/user'
 
 const findById = async (id) => {
   return await User.findById(id)
@@ -21,10 +21,15 @@ const updateSubscription = async (id, subscription) => {
   return await User.updateOne({ _id: id }, { subscription })
 }
 
-module.exports = {
+const updateAvatar = async (id, avatar, idAvatarCloud = null) => {
+  return await User.updateOne({ _id: id }, { avatar, idAvatarCloud })
+}
+
+export default {
   findById,
   findByEmail,
   create,
   updateToken,
   updateSubscription,
+  updateAvatar,
 }

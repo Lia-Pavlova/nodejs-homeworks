@@ -1,5 +1,14 @@
-const getStatisticsContacts = require('../../repository/getStatisticsContacts')
-const { HttpCode } = require('../../libs/constants')
+/* eslint-disable no-unused-vars */
+import getStatisticsContacts from '../../repository/getStatisticsContacts'
+import { HttpCode } from '../../libs/constants'
+import {
+  UploadFileService,
+  LocalFileStorage,
+  CloudFileStorage,
+} from '../../service/file-storage'
+
+// LocalStorage - static/local
+// CloudStorage - with using cloudinary
 
 const aggregation = async (req, res, next) => {
   const { id } = req.params
@@ -14,4 +23,19 @@ const aggregation = async (req, res, next) => {
     .json({ status: 'error', code: HttpCode.NOT_FOUND, message: 'Not found' })
 }
 
-module.exports = { aggregation }
+const uploadAvatar = async (req, res, next) => {
+  const uploadService = new UploadFileService(
+    LocalFileStorage,
+    // CloudFileStorage,
+    req.file,
+    req.user,
+  )
+
+  const avatarUrl = await uploadService.updateAvatar()
+
+  res
+    .status(HttpCode.OK)
+    .json({ status: 'success', code: HttpCode.OK, data: { avatarUrl } })
+}
+
+export { aggregation, uploadAvatar }

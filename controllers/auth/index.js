@@ -1,8 +1,7 @@
-const registration = require('./registration')
-const login = require('./login')
-const logout = require('./logout')
+import registration from './registration'
+import login from './login'
+import logout from './logout'
+import getCurrent from './getCurrent'
+import subscriptionUpdate from './subscriptionUpdate'
 
-const getCurrent = require('./getCurrent')
-const subscriptionUpdate = require('./subscriptionUpdate')
-
-module.exports = { registration, login, logout, getCurrent, subscriptionUpdate }
+export { registration, login, logout, getCurrent, subscriptionUpdate }

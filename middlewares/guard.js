@@ -1,6 +1,6 @@
-const jwt = require('jsonwebtoken')
-const users = require('../repository/users')
-const { HttpCode } = require('../libs/constants')
+import jwt from 'jsonwebtoken'
+import users from '../repository/users'
+import { HttpCode } from '../libs/constants'
 
 const SECRET_KEY = process.env.JWT_SECRET_KEY
 
@@ -36,4 +36,4 @@ const guard = async (req, res, next) => {
   next()
 }
 
-module.exports = guard
+export default guard

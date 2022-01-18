@@ -1,7 +1,7 @@
-const MIN_AGE = 14
-const MAX_AGE = 75
+export const MIN_AGE = 14
+export const MAX_AGE = 75
 
-const HttpCode = {
+export const HttpCode = {
   OK: 200,
   CREATED: 201,
   ACCEPTED: 202,
@@ -15,17 +15,17 @@ const HttpCode = {
   INTERNAL_SERVER_ERROR: 500,
 }
 
-const Role = {
+export const Role = {
   ADMIN: 'administrator',
   USER: 'user',
 }
 
-const LIMIT_JSON = 5000
+export const LIMIT_JSON = 5000
 
-const Subscription = {
+export const Subscription = {
   STARTER: 'starter',
   PRO: 'pro',
   BUSINESS: 'business',
 }
 
-module.exports = { MIN_AGE, MAX_AGE, HttpCode, Role, LIMIT_JSON, Subscription }
+export const CLOUD_FOLDER_AVATARS = 'Avatars'

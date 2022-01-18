@@ -1,4 +1,4 @@
-const Contact = require('../model/contact')
+import Contact from '../model/contact'
 
 const listContacts = async (
   userId,
@@ -35,6 +35,7 @@ const listContacts = async (
   ) {
     size = total - (page - 1) * limit
   }
+
   result = await result
     .skip(Number((page - 1) * limit))
     .limit(Number(limit))
@@ -42,4 +43,4 @@ const listContacts = async (
   return { total, size, contacts: result }
 }
 
-module.exports = listContacts
+export default listContacts

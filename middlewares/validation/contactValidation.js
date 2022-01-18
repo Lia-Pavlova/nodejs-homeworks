@@ -1,6 +1,6 @@
-const Joi = require('joi')
-const pkg = require('mongoose')
-const { MAX_AGE, MIN_AGE } = require('../../libs/constants')
+import Joi from 'joi'
+import pkg from 'mongoose'
+import { MAX_AGE, MIN_AGE } from '../../libs/constants'
 const { Types } = pkg
 
 const createSchema = Joi.object({
@@ -36,7 +36,7 @@ const querySchema = Joi.object({
     .optional(),
 })
 
-const validateCreate = async (req, res, next) => {
+export const validateCreate = async (req, res, next) => {
   try {
     await createSchema.validateAsync(req.body)
   } catch (err) {
@@ -47,7 +47,7 @@ const validateCreate = async (req, res, next) => {
   next()
 }
 
-const validateUpdate = async (req, res, next) => {
+export const validateUpdate = async (req, res, next) => {
   try {
     await updateSchema.validateAsync(req.body)
   } catch (err) {
@@ -60,7 +60,7 @@ const validateUpdate = async (req, res, next) => {
   next()
 }
 
-const validateUpdateFavorite = async (req, res, next) => {
+export const validateUpdateFavorite = async (req, res, next) => {
   try {
     await updateFavoriteSchema.validateAsync(req.body)
   } catch (err) {
@@ -73,14 +73,14 @@ const validateUpdateFavorite = async (req, res, next) => {
   next()
 }
 
-const validateId = async (req, res, next) => {
+export const validateId = async (req, res, next) => {
   if (!Types.ObjectId.isValid(req.params.id)) {
     return res.status(400).json({ message: 'Invalid ObjectId' })
   }
   next()
 }
 
-const validateQuery = async (req, res, next) => {
+export const validateQuery = async (req, res, next) => {
   try {
     await querySchema.validateAsync(req.query)
   } catch (err) {
@@ -89,12 +89,4 @@ const validateQuery = async (req, res, next) => {
       .json({ message: `Field ${err.message.replace(/"/g, '')}` })
   }
   next()
-}
-
-module.exports = {
-  validateCreate,
-  validateUpdate,
-  validateUpdateFavorite,
-  validateId,
-  validateQuery,
 }

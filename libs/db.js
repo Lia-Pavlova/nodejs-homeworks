@@ -1,8 +1,14 @@
-const pkg = require('mongoose')
+import pkg from 'mongoose'
 
 const { connect, connection } = pkg
 
-const uri = process.env.URI_DB
+let uri
+
+if (process.env.NODE_ENV === 'test') {
+  uri = process.env.URI_DB_TEST
+} else {
+  uri = process.env.URI_DB
+}
 
 const db = connect(uri, {
   useNewUrlParser: true,
@@ -27,4 +33,4 @@ process.on('SIGINT', async () => {
   process.exit(1)
 })
 
-module.exports = db
+export default db
