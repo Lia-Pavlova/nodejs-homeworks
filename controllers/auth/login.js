@@ -1,15 +1,12 @@
 import { HttpCode } from '../../libs/constants'
 import authService from '../../service/auth'
+import { CustomError } from '../../libs/custom-error'
 
 const login = async (req, res, next) => {
   const { email, password } = req.body
   const user = await authService.getUser(email, password)
   if (!user) {
-    return res.status(HttpCode.UNAUTHORIZED).json({
-      status: 'error',
-      code: HttpCode.UNAUTHORIZED,
-      message: 'Invalid credentials',
-    })
+    throw new CustomError(HttpCode.UNAUTHORIZED, 'Invalid credentials')
   }
   const token = authService.getToken(user)
   await authService.setToken(user.id, token)

@@ -16,23 +16,24 @@ import {
 } from '../../middlewares/validation/contactValidation'
 
 import guard from '../../middlewares/guard'
+import wrapperError from '../../middlewares/error-handler'
 
 const router = new Router()
 
-router.get('/', [guard, validateQuery], getAllList)
+router.get('/', [guard, validateQuery], wrapperError(getAllList))
 
-router.get('/:id', [guard, validateId], getById)
+router.get('/:id', [guard, validateId], wrapperError(getById))
 
-router.post('/', [guard, validateCreate], add)
+router.post('/', [guard, validateCreate], wrapperError(add))
 
-router.delete('/:id', [guard, validateId], remove)
+router.delete('/:id', [guard, validateId], wrapperError(remove))
 
-router.put('/:id', [guard, validateId, validateUpdate], update)
+router.put('/:id', [guard, validateId, validateUpdate], wrapperError(update))
 
 router.patch(
   '/:id/favorite',
   [guard, validateId, validateUpdateFavorite],
-  update,
+  wrapperError(update),
 )
 
 export default router
