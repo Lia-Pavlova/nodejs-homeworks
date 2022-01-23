@@ -1,5 +1,6 @@
 import updateContact from '../../repository/updateContact'
 import { HttpCode } from '../../libs/constants'
+import { CustomError } from '../../libs/custom-error'
 
 const update = async (req, res, next) => {
   const { id } = req.params
@@ -10,9 +11,7 @@ const update = async (req, res, next) => {
       .status(HttpCode.OK)
       .json({ status: 'success', code: HttpCode.OK, data: { contactUpdated } })
   }
-  res
-    .status(HttpCode.NOT_FOUND)
-    .json({ status: 'error', code: HttpCode.NOT_FOUND, message: 'Not found' })
+  throw new CustomError(HttpCode.NOT_FOUND, 'Not found')
 }
 
 export default update
